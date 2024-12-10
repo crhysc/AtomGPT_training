@@ -1,0 +1,12 @@
+{
+    "id_prop_path": "/users/crc00042/3DPBE/id_prop/id_prop.csv",
+    "prefix": "atomgpt_run",
+    "model_name": "google/flan-t5-small",
+    "batch_size": 2,
+    "num_epochs": 1,
+    "seed_val": 42,
+    "num_train": 2,
+    "num_val": 2,
+    "num_test": 2,
+    "model_save_path": "/users/crc00042/3DPBE/outinverse"
+}

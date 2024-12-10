@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+#SBATCH -J test_run
+#name of job
+
+#SBATCH -o /users/crc00042/2DPBE/output.out
+#standard output file
+
+#SBATCH -N 1
+#number of nodes
+
+#SBATCH -n 1
+#number of tasks
+
+#SBATCH -p gpu_7day
+#queue for the job
+
+#SBATCH -t 8:00:00
+
+. $HOME/.bashrc
+
+conda init
+conda activate mesaverde
+
+nvidia-smi
+
+echo ""
+echo "<--- Job output --->"
+echo ""
+
+# Put job commands here V
+
+python ~/ATOMGPT/atomgpt/atomgpt/forward_models/forward_models.py --config_name /users/crc00042/2DPBE/id_prop/config.json
+
+
+# Put job commands above ^
+
+echo ""
+echo "{JOB FINISHED}"
+echo ""
+echo "Job ID:              $SLURM_JOB_ID"
+echo "Job Name:            $SLURM_JOB_NAME"
+echo "Number of Nodes:     $SLURM_JOB_NUM_NODES"
+echo "Number of CPU cores: $SLURM_CPUS_ON_NODE"
+echo "Number of Tasks:     $SLURM_NTASKS"
+echo "Partition:           $SLURM_JOB_PARTITION"
